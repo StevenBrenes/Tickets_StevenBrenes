@@ -13,6 +13,8 @@ namespace Tickets.Formularios
     public partial class FrmTicketCrear : Form
     {
         public Logica.Models.Ticket MiTicket { get; set; }
+        public Logica.Models.Bitacora MiBitacora { get; set; }
+        public Logica.Models.Usuario MiUsuario { get; set; }
 
         public FrmTicketCrear()
         {
@@ -91,12 +93,12 @@ namespace Tickets.Formularios
                     if (MiBitacora.Agregar())
                     {
 
-                        MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                        MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(Commons.ObjetosGlobales.MiUsuarioDeSistema.IDUsuario);
                         string email = Convert.ToString(TxtTitulo);
                         string descrip = "Se creo nuevo ticket: ";
                         MiBitacora.Accion = String.Format(descrip + email);
-                        string v = DateTime.Now.ToString("MMddyyyy");
-                        MiBitacora.FechaHora = v;
+                       // string v = DateTime.Now.ToString("MMddyyyy");
+                        //MiBitacora.FechaHora = v;
                     }
 
                     MessageBox.Show("Ticket Agregado Correctamente", ":)", MessageBoxButtons.OK);

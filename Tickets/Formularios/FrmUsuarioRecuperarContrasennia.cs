@@ -16,6 +16,8 @@ namespace Tickets.Formularios
         public Logica.Email MyEmail { get; set; }
         public Logica.Models.Usuario MyUser { get; set; }
 
+        public Logica.Models.Bitacora MiBitacora { get; set; }
+
 
         public FrmUsuarioRecuperarContrasennia()
         {
@@ -87,8 +89,8 @@ namespace Tickets.Formularios
                                     string email = Convert.ToString(TxtUsuario);
                                     string descrip = "Se ha restablecido la contrase;a del usuario: ";
                                     MiBitacora.Accion = String.Format(descrip + email);
-                                    string v = DateTime.Now.ToString("MMddyyyy");
-                                    MiBitacora.FechaHora = v;
+                                    //string v = DateTime.Now.ToString("MMddyyyy");
+                                    //MiBitacora.FechaHora = v;
                                 }
 
                                 MessageBox.Show("Corrreo enviado correctamente", ":)", MessageBoxButtons.OK);

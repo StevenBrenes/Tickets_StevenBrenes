@@ -12,6 +12,8 @@ namespace Tickets.Formularios
 {
     public partial class FrmMain : Form
     {
+        public Logica.Models.Bitacora MiBitacora { get; set; }
+        public Logica.Models.Usuario MiUsuario { get; set; }
         public FrmMain()
         {
             InitializeComponent();
@@ -36,11 +38,11 @@ namespace Tickets.Formularios
             if (MiBitacora.Agregar())
             {
 
-                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(Commons.ObjetosGlobales.MiUsuarioDeSistema.Email);
                 string descrip = "El siguiente usuario ha cerrado el sistema: ";
                 MiBitacora.Accion = String.Format(descrip);
-                string v = DateTime.Now.ToString("MMddyyyy");
-                MiBitacora.FechaHora = v;
+                //string v = DateTime.Now.ToString("MMddyyyy");
+               // MiBitacora.FechaHora = v;
             }
 
             Application.Exit();

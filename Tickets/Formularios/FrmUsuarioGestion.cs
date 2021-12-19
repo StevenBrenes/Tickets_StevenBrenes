@@ -200,7 +200,7 @@ namespace Tickets.Formularios
                 {
                     //si no existe la cedula y si no existe el email tengo permiso para continuar con agregar
 
-                    string Mensaje = string.Format("¿Desea Continuar y Agregar al Usuario {0}?", MiUsuarioLocal.Nombre);
+                    string Mensaje = string.Format("¿Desea Continuar y Agregar al Usuario {0}?", Commons.ObjetosGlobales.MiUsuarioDeSistema.IDUsuario);
 
                     DialogResult Continuar = MessageBox.Show(Mensaje, "???", MessageBoxButtons.YesNo);
 
@@ -212,12 +212,12 @@ namespace Tickets.Formularios
                         if (MiBitacora.Agregar())
                         {
                             
-                            MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                            MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(Commons.ObjetosGlobales.MiUsuarioDeSistema.IDUsuario);
                             string email = Convert.ToString(TxtEmail);
                             string descrip = "Usuario agregado correctamente con el email: ";
                             MiBitacora.Accion =String.Format(descrip + email);
-                            string v = DateTime.Now.ToString("MMddyyyy");
-                            MiBitacora.FechaHora = v;
+                            //string v = DateTime.Now.ToString("MMddyyyy");
+                            //MiBitacora.FechaHora = v;
                         }
 
                         //1.6
@@ -245,14 +245,14 @@ namespace Tickets.Formularios
                     if (MiBitacora.Agregar())
                     {
 
-                        MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                        MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(Commons.ObjetosGlobales.MiUsuarioDeSistema.IDUsuario);
 
                         string email = Convert.ToString(TxtEmail);
                         string descrip = "Error al ingresar usuario con el email: ";
                         MiBitacora.Accion = String.Format(descrip + email);
 
-                        string v = DateTime.Now.ToString("MMddyyyy");
-                        MiBitacora.FechaHora = v;
+                        //string v = DateTime.Now.ToString("MMddyyyy");
+                        //MiBitacora.FechaHora = v;
                     }
 
                     if (OkCedula)
@@ -386,12 +386,12 @@ namespace Tickets.Formularios
                         if (MiBitacora.Agregar())
                         {
 
-                            MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                            MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(Commons.ObjetosGlobales.MiUsuarioDeSistema.IDUsuario);
                             string email = Convert.ToString(TxtEmail);
                             string descrip = "Usuario editado correctamente con el email: ";
                             MiBitacora.Accion = String.Format(descrip + email);
-                            string v = DateTime.Now.ToString("MMddyyyy");
-                            MiBitacora.FechaHora = v;
+                            //string v = DateTime.Now.ToString("MMddyyyy");
+                            //MiBitacora.FechaHora = v;
                         }
 
                         if (MiUsuarioLocal.Editar())
@@ -453,12 +453,12 @@ namespace Tickets.Formularios
                             if (MiBitacora.Agregar())
                             {
 
-                                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(Commons.ObjetosGlobales.MiUsuarioDeSistema.IDUsuario);
                                 string email = Convert.ToString(TxtEmail);
                                 string descrip = "Usuario desactivado correctamente con el email: ";
                                 MiBitacora.Accion = String.Format(descrip + email);
-                                string v = DateTime.Now.ToString("MMddyyyy");
-                                MiBitacora.FechaHora = v;
+                                //string v = DateTime.Now.ToString("MMddyyyy");
+                                //MiBitacora.FechaHora = v;
                             }
 
                         }
@@ -469,12 +469,12 @@ namespace Tickets.Formularios
                             if (MiBitacora.Agregar())
                             {
 
-                                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(Commons.ObjetosGlobales.MiUsuarioDeSistema.IDUsuario);
                                 string email = Convert.ToString(TxtEmail);
                                 string descrip = "No se ha podido desactivar el usuario correspondiente al email: ";
                                 MiBitacora.Accion = String.Format(descrip + email);
-                                string v = DateTime.Now.ToString("MMddyyyy");
-                                MiBitacora.FechaHora = v;
+                                //string v = DateTime.Now.ToString("MMddyyyy");
+                                //MiBitacora.FechaHora = v;
                             }
 
                         }
@@ -489,12 +489,12 @@ namespace Tickets.Formularios
                             if (MiBitacora.Agregar())
                             {
 
-                                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(Commons.ObjetosGlobales.MiUsuarioDeSistema.IDUsuario);
                                 string email = Convert.ToString(TxtEmail);
                                 string descrip = "Usuario Activado correctamente con el email: ";
                                 MiBitacora.Accion = String.Format(descrip + email);
-                                string v = DateTime.Now.ToString("MMddyyyy");
-                                MiBitacora.FechaHora = v;
+                                //string v = DateTime.Now.ToString("MMddyyyy");
+                                //MiBitacora.FechaHora = v;
                             }
 
                         }
@@ -505,12 +505,12 @@ namespace Tickets.Formularios
                             if (MiBitacora.Agregar())
                             {
 
-                                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(Commons.ObjetosGlobales.MiUsuarioDeSistema.IDUsuario);
                                 string email = Convert.ToString(TxtEmail);
                                 string descrip = "No se ha podido activar el usuario correspondiente al email: ";
                                 MiBitacora.Accion = String.Format(descrip + email);
-                                string v = DateTime.Now.ToString("MMddyyyy");
-                                MiBitacora.FechaHora = v;
+                                //string v = DateTime.Now.ToString("MMddyyyy");
+                                //MiBitacora.FechaHora = v;
                             }
 
                         }
@@ -607,6 +607,11 @@ namespace Tickets.Formularios
                 BtnEliminar.Text = "Activar";
                 BtnEliminar.BackColor = Color.BlueViolet;
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

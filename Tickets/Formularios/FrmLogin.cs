@@ -12,6 +12,7 @@ namespace Tickets.Formularios
 {
     public partial class FrmLogin : Form
     {
+        public Logica.Models.Bitacora MiBitacora { get; set; }
         public FrmLogin()
         {
             InitializeComponent();
@@ -98,8 +99,8 @@ namespace Tickets.Formularios
                         string email = Convert.ToString(TxtEmail);
                         string descrip = "Se ha iniciado sesion correctamente con el email: ";
                         MiBitacora.Accion = String.Format(descrip + email);
-                        string v = DateTime.Now.ToString("MMddyyyy");
-                        MiBitacora.FechaHora = v;
+                        //string v = DateTime.Now.ToString("MMddyyyy");
+                        //MiBitacora.FechaHora = v;
                     }
 
                 }
@@ -110,12 +111,12 @@ namespace Tickets.Formularios
                     if (MiBitacora.Agregar())
                     {
 
-                        MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                        MiBitacora.MiUsuario.IDUsuario = 0;
                         string email = Convert.ToString(TxtEmail);
                         string descrip = "No se ha logrado iniciar sesion correctamente con el email: ";
                         MiBitacora.Accion = String.Format(descrip + email);
-                        string v = DateTime.Now.ToString("MMddyyyy");
-                        MiBitacora.FechaHora = v;
+                        //string v = DateTime.Now.ToString("MMddyyyy");
+                        //MiBitacora.FechaHora = v;
                     }
 
                 }
