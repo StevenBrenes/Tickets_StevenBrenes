@@ -33,6 +33,16 @@ namespace Tickets.Formularios
         {
             //TODO: analizar si queremos hacer un logout cuando cerramos el principal 
 
+            if (MiBitacora.Agregar())
+            {
+
+                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                string descrip = "El siguiente usuario ha cerrado el sistema: ";
+                MiBitacora.Accion = String.Format(descrip);
+                string v = DateTime.Now.ToString("MMddyyyy");
+                MiBitacora.FechaHora = v;
+            }
+
             Application.Exit();
 
         }
@@ -59,5 +69,9 @@ namespace Tickets.Formularios
             Commons.ObjetosGlobales.FormAtencion.Show();
         }
 
+        private void LblUsuarioLogueado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

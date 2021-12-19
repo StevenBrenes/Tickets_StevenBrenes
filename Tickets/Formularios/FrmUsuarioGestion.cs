@@ -17,6 +17,7 @@ namespace Tickets.Formularios
         //debería contener toda la funcionlidad que se requiere para cumplir los 
         //requerimiento Funcionales 
         private Logica.Models.Usuario MiUsuarioLocal { get; set; }
+        private Logica.Models.Bitacora MiBitacora { get; set; }
 
         private DataTable ListaUsuarios { get; set; }
        
@@ -28,6 +29,7 @@ namespace Tickets.Formularios
             //SDUsuarioRolListar Paso 1 y 1.1
             //SDUsuarioAgregar Paso 1.1 y 1.2
             MiUsuarioLocal = new Logica.Models.Usuario();
+            MiBitacora = new Logica.Models.Bitacora();
 
             ListaUsuarios = new DataTable();
            
@@ -207,9 +209,21 @@ namespace Tickets.Formularios
 
                     if (Continuar == DialogResult.Yes)
                     {
+                        if (MiBitacora.Agregar())
+                        {
+                            
+                            MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                            string email = Convert.ToString(TxtEmail);
+                            string descrip = "Usuario agregado correctamente con el email: ";
+                            MiBitacora.Accion =String.Format(descrip + email);
+                            string v = DateTime.Now.ToString("MMddyyyy");
+                            MiBitacora.FechaHora = v;
+                        }
+
                         //1.6
                         if (MiUsuarioLocal.Agregar())
                         {
+                         
                             MessageBox.Show("Usuario Agregado Correctamente", ":)", MessageBoxButtons.OK);
 
                             LimpiarFormulario();
@@ -218,6 +232,8 @@ namespace Tickets.Formularios
                         }
                         else
                         {
+                            MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                            MiBitacora.Accion = "Se ha agregado un nuevo usuario con el email: " + TxtEmail;
                             MessageBox.Show("Ha ocurrido un error y no se ha guardado el usuario", ":(", MessageBoxButtons.OK);
                         }
                     }
@@ -225,6 +241,19 @@ namespace Tickets.Formularios
                 else
                 {
                     //En caso que ya exista la cédulo o el email, debe informarse al usuario
+
+                    if (MiBitacora.Agregar())
+                    {
+
+                        MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+
+                        string email = Convert.ToString(TxtEmail);
+                        string descrip = "Error al ingresar usuario con el email: ";
+                        MiBitacora.Accion = String.Format(descrip + email);
+
+                        string v = DateTime.Now.ToString("MMddyyyy");
+                        MiBitacora.FechaHora = v;
+                    }
 
                     if (OkCedula)
                     {
@@ -353,6 +382,18 @@ namespace Tickets.Formularios
 
                     if (Continuar == DialogResult.Yes)
                     {
+
+                        if (MiBitacora.Agregar())
+                        {
+
+                            MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                            string email = Convert.ToString(TxtEmail);
+                            string descrip = "Usuario editado correctamente con el email: ";
+                            MiBitacora.Accion = String.Format(descrip + email);
+                            string v = DateTime.Now.ToString("MMddyyyy");
+                            MiBitacora.FechaHora = v;
+                        }
+
                         if (MiUsuarioLocal.Editar())
                         {
                             //se muestra mensaje de éxito y se actualiza la lista 
@@ -408,10 +449,34 @@ namespace Tickets.Formularios
                         {
                             //se muestra mensaje de éxito y se actualiza la lista 
                             MessageBox.Show("El Usuario se ha Desactivado correctamente!", ":)", MessageBoxButtons.OK);
+
+                            if (MiBitacora.Agregar())
+                            {
+
+                                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                                string email = Convert.ToString(TxtEmail);
+                                string descrip = "Usuario desactivado correctamente con el email: ";
+                                MiBitacora.Accion = String.Format(descrip + email);
+                                string v = DateTime.Now.ToString("MMddyyyy");
+                                MiBitacora.FechaHora = v;
+                            }
+
                         }
                         else
                         {
                             MessageBox.Show("Ha ocurrido un error y no se desactivó el usuario!", ":(", MessageBoxButtons.OK);
+
+                            if (MiBitacora.Agregar())
+                            {
+
+                                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                                string email = Convert.ToString(TxtEmail);
+                                string descrip = "No se ha podido desactivar el usuario correspondiente al email: ";
+                                MiBitacora.Accion = String.Format(descrip + email);
+                                string v = DateTime.Now.ToString("MMddyyyy");
+                                MiBitacora.FechaHora = v;
+                            }
+
                         }
                     }
                     else
@@ -420,10 +485,34 @@ namespace Tickets.Formularios
                         {
                             //se muestra mensaje de éxito y se actualiza la lista 
                             MessageBox.Show("El Usuario se ha Activado correctamente!", ":)", MessageBoxButtons.OK);
+
+                            if (MiBitacora.Agregar())
+                            {
+
+                                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                                string email = Convert.ToString(TxtEmail);
+                                string descrip = "Usuario Activado correctamente con el email: ";
+                                MiBitacora.Accion = String.Format(descrip + email);
+                                string v = DateTime.Now.ToString("MMddyyyy");
+                                MiBitacora.FechaHora = v;
+                            }
+
                         }
                         else
                         {
-                            MessageBox.Show("Ha ocurrido un error y no se desactivó el usuario!", ":(", MessageBoxButtons.OK);
+                            MessageBox.Show("Ha ocurrido un error y no se activó el usuario!", ":(", MessageBoxButtons.OK);
+
+                            if (MiBitacora.Agregar())
+                            {
+
+                                MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                                string email = Convert.ToString(TxtEmail);
+                                string descrip = "No se ha podido activar el usuario correspondiente al email: ";
+                                MiBitacora.Accion = String.Format(descrip + email);
+                                string v = DateTime.Now.ToString("MMddyyyy");
+                                MiBitacora.FechaHora = v;
+                            }
+
                         }
                     }
 

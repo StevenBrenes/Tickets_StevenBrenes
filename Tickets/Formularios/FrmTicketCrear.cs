@@ -1,5 +1,4 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -89,31 +88,29 @@ namespace Tickets.Formularios
 
                 if (MiTicket.Agregar())
                 {
+                    if (MiBitacora.Agregar())
+                    {
+
+                        MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                        string email = Convert.ToString(TxtTitulo);
+                        string descrip = "Se creo nuevo ticket: ";
+                        MiBitacora.Accion = String.Format(descrip + email);
+                        string v = DateTime.Now.ToString("MMddyyyy");
+                        MiBitacora.FechaHora = v;
+                    }
+
                     MessageBox.Show("Ticket Agregado Correctamente", ":)", MessageBoxButtons.OK);
 
-                    try
-                    {
-                        ReportDocument MiReporte = new ReportDocument();
-
-                        MiReporte = new Reports.RptTicket();
-
-                        MiReporte = MiTicket.Imprimir(MiReporte);
-
-                        FrmVisulizarReportes MiVisualizador = new FrmVisulizarReportes();
-
-                        MiVisualizador.CrvVisualizador.ReportSource = MiReporte;
-
-                        MiVisualizador.Show();
-
-                        MiVisualizador.CrvVisualizador.Zoom(1);
-                    }
-                    catch (Exception)
-                    {
-                        throw;
-                    }
                     LimpiarForm();
+
+                    //TODO Implementar un reporte de crystal para poderlo imprimir y que quede 
+                    //como atestado de creación del ticket 
                 }
+                
+
+
             }
+
         }
 
         private bool Validar()

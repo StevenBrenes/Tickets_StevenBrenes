@@ -79,6 +79,18 @@ namespace Tickets.Formularios
 
                             if (MyEmail.EnviarCorreo_Net_Mail_SmtpClient())
                             {
+
+                                if (MiBitacora.Agregar())
+                                {
+
+                                    MiBitacora.MiUsuario.IDUsuario = 0;
+                                    string email = Convert.ToString(TxtUsuario);
+                                    string descrip = "Se ha restablecido la contrase;a del usuario: ";
+                                    MiBitacora.Accion = String.Format(descrip + email);
+                                    string v = DateTime.Now.ToString("MMddyyyy");
+                                    MiBitacora.FechaHora = v;
+                                }
+
                                 MessageBox.Show("Corrreo enviado correctamente", ":)", MessageBoxButtons.OK);
 
                                 TxtCodigoEnviado.Enabled = true;

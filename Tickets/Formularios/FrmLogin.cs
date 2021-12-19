@@ -90,10 +90,34 @@ namespace Tickets.Formularios
                     Commons.ObjetosGlobales.MiFormPrincipal.Show();
                     //oculto (no destruyo) el frm de Login
                     this.Hide();
+
+                    if (MiBitacora.Agregar())
+                    {
+
+                        MiBitacora.MiUsuario.IDUsuario = 0;
+                        string email = Convert.ToString(TxtEmail);
+                        string descrip = "Se ha iniciado sesion correctamente con el email: ";
+                        MiBitacora.Accion = String.Format(descrip + email);
+                        string v = DateTime.Now.ToString("MMddyyyy");
+                        MiBitacora.FechaHora = v;
+                    }
+
                 }
                 else
                 {
                     MessageBox.Show("Usuario o Contraseña Incorrectos", "Error de Validado", MessageBoxButtons.OK);
+
+                    if (MiBitacora.Agregar())
+                    {
+
+                        MiBitacora.MiUsuario.IDUsuario = Convert.ToInt32(MiUsuarioLocal.IDUsuario);
+                        string email = Convert.ToString(TxtEmail);
+                        string descrip = "No se ha logrado iniciar sesion correctamente con el email: ";
+                        MiBitacora.Accion = String.Format(descrip + email);
+                        string v = DateTime.Now.ToString("MMddyyyy");
+                        MiBitacora.FechaHora = v;
+                    }
+
                 }
             }
         }
@@ -124,6 +148,11 @@ namespace Tickets.Formularios
             Commons.ObjetosGlobales.FormularioRecuperacionContrasennia.TxtUsuario.Text = this.TxtEmail.Text.Trim();
 
             Commons.ObjetosGlobales.FormularioRecuperacionContrasennia.Show();
+
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
 
         }
     }

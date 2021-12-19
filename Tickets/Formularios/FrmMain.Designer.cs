@@ -135,7 +135,7 @@ namespace Tickets.Formularios
             this.creaciónDeTicketToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.creaciónDeTicketToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.creaciónDeTicketToolStripMenuItem.Name = "creaciónDeTicketToolStripMenuItem";
-            this.creaciónDeTicketToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.creaciónDeTicketToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.creaciónDeTicketToolStripMenuItem.Text = "Creación de Ticket";
             this.creaciónDeTicketToolStripMenuItem.Click += new System.EventHandler(this.creaciónDeTicketToolStripMenuItem_Click);
             // 
@@ -144,7 +144,7 @@ namespace Tickets.Formularios
             this.soluciónDeTicketToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.soluciónDeTicketToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.soluciónDeTicketToolStripMenuItem.Name = "soluciónDeTicketToolStripMenuItem";
-            this.soluciónDeTicketToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.soluciónDeTicketToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.soluciónDeTicketToolStripMenuItem.Text = "Solución de Ticket";
             this.soluciónDeTicketToolStripMenuItem.Click += new System.EventHandler(this.soluciónDeTicketToolStripMenuItem_Click);
             // 
@@ -192,11 +192,12 @@ namespace Tickets.Formularios
             this.LblUsuarioLogueado.Name = "LblUsuarioLogueado";
             this.LblUsuarioLogueado.Size = new System.Drawing.Size(14, 17);
             this.LblUsuarioLogueado.Text = "u";
+            this.LblUsuarioLogueado.Click += new System.EventHandler(this.LblUsuarioLogueado_Click);
             // 
             // LblHora
             // 
             this.LblHora.Name = "LblHora";
-            this.LblHora.Size = new System.Drawing.Size(895, 17);
+            this.LblHora.Size = new System.Drawing.Size(864, 17);
             this.LblHora.Spring = true;
             this.LblHora.Text = "Hora";
             this.LblHora.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
